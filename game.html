@@ -1,0 +1,22 @@
+<script>
+
+(function() {
+
+  var truth = 13;
+
+  var wisdom = prompt("You are a llama. You have a family and they have demands. You need the gold.  While walking and feeling sorry about your life you find a wise soul.  You wimper to the soul: 'I want the gold' The soul pauses then asks: 'How many roads must a llama walk down to get the gold?'");
+  wisdom = Number.parseInt(wisdom);
+      while(true) {
+        if(wisdom === truth) {
+          alert('Indeed, a llama must walk down 13 roads in order to find the gold');
+          break;
+        } else if(wisdom > 13) {
+        wisdom = Number.parseInt(prompt('Sheesh too many! Tired llama will never find gold...'));
+        } else if (wisdom < 13) {
+        wisdom = Number.parseInt(prompt('Lazy llama will recieve no gold nor handouts!'));
+        }
+}
+
+
+}) ();
+</script>
