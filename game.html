@@ -2,21 +2,57 @@
 
 (function() {
 
-  var truth = 13;
+  var truth = 4;
+  var checkCorrect = function(answer) {
+    if(answer === truth) {
+      alert('Indeed, the path to enlightenment comes from exploring all possible paths ahead of you while leaving the past where it is.');
+      return true;
+    } else {
+      return false;
+    }
+  }
+  var whyDoYouWantGold = function(goldReason) {
+    if(goldReason.search(/\bvirtue\b/ig !== -1)){
+      return "virtue";
+    } else if (goldReason.search(/\bpower\b/ig !== -1)) {
+      return "power";
+    } else {
+      return "unknown";
+    }
+  }
+  alert("You are a llama.");
+  alert("You have a family. You need gold.");
+  alert("While walking and feeling sorry about your life you come to a crossroads, four roads lie ahead and one behind. As you sit and think about where to go a wise soul appears. You whimper to the soul: 'I want gold, but don't know where to go.'");
+  var name = prompt("The wise soul considers your statement and then calmly asks, 'What is your name young llama?'");
+  alert("I'm glad to meet you " + name + " finding our destiny is a search everybody must undertake, why do you seek gold? ");
+    var reasons = whyDoYouWantGold(prompt("Do you lust for power or in your heart do you seek virtue?"));
+    if(reasons === "power") {
+      alert("We all have the desire in us to wield force, however, a lust for force can pervert even the best intentions. Beware.");
+    }  else if (reasons === "virtue") {
+      alert("A most wise and noble reason.");
+    } else {
+      alert("We all have our desires, be you must think clearly in what you desire, ultimately we all seek power or virtue.")
+    }
+    var wisdom = Number.parseInt(prompt("The soul pauses then asks: 'The answer you seek is related to the four roads that lay ahead of you and the one you've left behind. How many of them must you explore to find what you are looking for?'"));
 
-  var wisdom = prompt("You are a llama. You have a family and they have demands. You need the gold.  While walking and feeling sorry about your life you find a wise soul.  You wimper to the soul: 'I want the gold' The soul pauses then asks: 'How many roads must a llama walk down to get the gold?'");
-  wisdom = Number.parseInt(wisdom);
       while(true) {
-        if(wisdom === truth) {
-          alert('Indeed, a llama must walk down 13 roads in order to find the gold');
+        if (checkCorrect(wisdom)) {
+          alert("You are most wise and thoughtful young llama, I believe I don't have anything more to teach you.");
+          alert("In a puff of light and dust the wise soul disappears and in their place is a pile of gold.");
           break;
-        } else if(wisdom > 13) {
-        wisdom = Number.parseInt(prompt('Sheesh too many! Tired llama will never find gold...'));
-        } else if (wisdom < 13) {
-        wisdom = Number.parseInt(prompt('Lazy llama will recieve no gold nor handouts!'));
-        }
-}
+        } else {
+          if (wisdom > 5) {
+            alert("Ambition is admirable, but realize what is possible. There are four roads ahead of you and one behind.");
+          } else if (wisdom < 4) {
+            alert("You will never find what you seek if you do not explore everything that is ahead of you.");
+          } else if (wisdom === 5) {
+            alert("The desire to seek answers in your past and in your future will only muddle your mind sending you into an infinite loop.");
+          }
 
+          wisdom = Number.parseInt(prompt("Have you reconsidered the answer?"));
+        }
+
+      }
 
 }) ();
 </script>
