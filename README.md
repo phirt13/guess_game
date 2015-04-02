@@ -12,4 +12,8 @@ If the user guesses correctly then a dialogue box will inform the user that they
 
 This game works by using Javascripts: while loops, if and else comparisons, prompts, alerts, variables, and converted strings to intergers with Number.parseInt()
 
+The changes made during pairing was to expand the story offering more choices and adding functions.
 
+when asked why they seek gold a function was created which uses regular expressions to look for specific words namely 'virtue' and 'power'
+
+in addition the answer checker was split off into its own function
