@@ -2,24 +2,25 @@
 
 (function() {
 
-var llama = 'You are a llama.';
-var llamaDemands = 'You have a family. You need gold.';
-var crossRoads = 'While walkding down a road and feeling sorry about your life you come to a crossroads: four roads lie ahead As you sit and think about where to go a wise soul appears. You whimper to the soul: "I want gold, but don\'t know where to go."'
-var soulQuestion1 = 'The wise soul considers your statement and then calmly asks, "What is your name young llama?"'
-var destinyQuestion = '"Do you lust for: power? Or in your heart do you seek: virtue?"'
-var powerWarning = '"We all have the desire in us to wield force, however, a lust for force can pervert even the best intentions. Beware."'
-var virtueAffirm = '"A most wise and noble reason. I will gladly share my knowledge."'
-var nonsenseAnsw = '"Hmmmm...you desire neither?  Stupid llama there is only virtue or power.  Still we must get on with this..."'
-var knowledgeReveal = 'The soul pauses then asks: "The answer you seek is related to the four roads ahead of you and the one you have left behind. How many of them must you explore to find what you are looking for?"'
-var againDummie = '"Have you reconsidered the answer?"'
-var aboutTime = '"Indeed, the path to enlightenment comes from exploring all possible paths ahead of you while leaving the past where it is."'
-var pissOff = '"You are most wise and thoughtful young llama, I believe I do not have anything more to teach you."'
-var stupidAnsw = "You will never find what you seek if you do not explore everything that is ahead of you."
-var stupiderAnsw = "Ambition is admirable, but realize what is possible. There are four roads ahead of you and one behind."
-var stupidestAnsw = "The desire to seek answers in your past and in your future will only muddle your mind sending you into an infinite loop."
-var goneGenie = "In a puff of light and dust the wise soul disappears and in its place is a pile of gold."
+  var llama = 'You are a llama.';
+  var llamaDemands = 'You have a family. You need gold.';
+  var crossRoads = 'While walkding down a road and feeling sorry about your life you come to a crossroads: four roads lie ahead As you sit and think about where to go a wise soul appears. You whimper to the soul: "I want gold, but don\'t know where to go."'
+  var soulQuestion1 = 'The wise soul considers your statement and then calmly asks, "What is your name young llama?"'
+  var destinyQuestion = '"Do you lust for: power? Or in your heart do you seek: virtue?"'
+  var powerWarning = '"We all have the desire in us to wield force, however, a lust for force can pervert even the best intentions. Beware."'
+  var virtueAffirm = '"A most wise and noble reason. I will gladly share my knowledge."'
+  var nonsenseAnsw = '"Hmmmm...you desire neither?  Stupid llama there is only virtue or power.  Still we must get on with this..."'
+  var knowledgeReveal = 'The soul pauses then asks: "The answer you seek is related to the four roads ahead of you and the one you have left behind. How many of them must you explore to find what you are looking for?"'
+  var againDummie = '"Have you reconsidered the answer?"'
+  var aboutTime = '"Indeed, the path to enlightenment comes from exploring all possible paths ahead of you while leaving the past where it is."'
+  var pissOff = '"You are most wise and thoughtful young llama, I believe I do not have anything more to teach you."'
+  var stupidAnsw = "You will never find what you seek if you do not explore everything that is ahead of you."
+  var stupiderAnsw = "Ambition is admirable, but realize what is possible. There are four roads ahead of you and one behind."
+  var stupidestAnsw = "The desire to seek answers in your past and in your future will only muddle your mind sending you into an infinite loop."
+  var goneGenie = "In a puff of light and dust the wise soul disappears and in its place is a pile of gold."
 
   var truth = 4;
+
   var checkCorrect = function(answer) {
     if(answer === truth) {
       alert(aboutTime);
@@ -27,55 +28,55 @@ var goneGenie = "In a puff of light and dust the wise soul disappears and in its
     } else {
       return false;
     }
-  }
+  };
 
   alert(llama);
   alert(llamaDemands);
   alert(crossRoads);
+
   var name = prompt(soulQuestion1);
+
   alert('"I am glad to meet you ' + name + ' finding our destiny is a search everybody must undertake. However, why do you seek gold?"');
 
   var reasons = prompt(destinyQuestion);
 
-    if(reasons.length === 5) {
-      alert(powerWarning);
-       ;
-    }  else if (reasons.length === 6) {
-      alert(virtueAffirm);
-       ;
+  if(reasons.length === 5) {
+    alert(powerWarning);
+  } else if (reasons.length === 6) {
+    alert(virtueAffirm);
+  } else {
+    alert(nonsenseAnsw);
+  }
+  function WinGold (gold, pile) {
+    this.gold = 1000;
+    this.pile = 1000;
+    this.winner = function() {
+      return this.pile + this.gold;
+    };
+  }
+
+  var moreGold = new WinGold;
+
+  var wisdom = Number.parseInt(prompt(knowledgeReveal));
+
+  while(true) {
+    if (checkCorrect(wisdom)) {
+      alert(pissOff);
+      alert(goneGenie);
+      alert('Congrats you recieved ' + moreGold.winner() + ' gold from all that nonsense. Now consider why a llama would ever need gold in the first place...');
+    break;
     } else {
-      alert(nonsenseAnsw);
-      ;
-    }
-    function WinGold (gold, pile) {
-      this.gold = 1000;
-      this.pile = 1000;
-      this.winner = function() {
-        return this.pile + this.gold;
-      };
-    }
+      if (wisdom > 5) {
+        alert(stupiderAnsw);
+      } else if (wisdom < 4) {
+        alert(stupidAnsw);
+      } else if (wisdom === 5) {
+        alert(stupidestAnsw);
+      } else {
+        console.log()
+      }
 
-    var moreGold = new WinGold;
-
-    var wisdom = Number.parseInt(prompt(knowledgeReveal));
-
-      while(true) {
-        if (checkCorrect(wisdom)) {
-          alert(pissOff);
-          alert(goneGenie);
-          alert('Congrats you recieved ' + moreGold.winner() + ' gold from all that nonsense. Now consider why a llama would ever need gold in the first place...');
-          break;
-        } else {
-          if (wisdom > 5) {
-            alert(stupiderAnsw);
-          } else if (wisdom < 4) {
-            alert(stupidAnsw);
-          } else if (wisdom === 5) {
-            alert(stupidestAnsw);
-          }
-
-          wisdom = Number.parseInt(prompt(againDummie));
-
+    wisdom = Number.parseInt(prompt(againDummie));
 
     }
   }
